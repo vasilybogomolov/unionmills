@@ -1,0 +1,360 @@
+/*
+Test Theme
+Version: 2.0.0
+Author: Ankly
+*/
+@import url("reset.css");
+
+
+/*General Styles*/
+$white: #fff;
+@font-face {
+    font-family: HelveticaNeue; 
+    src: url(../fonts/HelveticaNeueCyr-Roman.otf);
+   }
+@font-face {
+    font-family: HelveticaNeueLight1;
+    src: url(../fonts/HelveticaNeueCyr-UltraLight_0.otf);
+ }
+@mixin gradients($color_up,$color_down) {
+	 background-image: -moz-linear-gradient( 90deg, $color_down 0%, $color_up 100%);
+  background-image: -webkit-linear-gradient( 90deg, $color_down 0%, $color_up 100%);
+  background-image: -ms-linear-gradient( 90deg, $color_down 0%, $color_up 100%);
+}
+@mixin sizes($high,$backdrop) {
+	background: $backdrop;
+	width: 100%;
+	min-width: 1000px;
+	height: $high;
+}
+@mixin logo ($top_param,$left_param) {
+	font-weight: bold;
+	color: #e7e7e7;
+	font-size: 22px;
+	font-family: Arial;
+	position: absolute;
+	top: $top_param;
+	left: $left_param;
+}
+@mixin circle_icon ($width_param, $height_param, $border_radius_param, $border_param, $color_param, $top_param, $left_param) {
+	position: relative;
+	display: block;
+	width: $width_param;
+	height: $height_param;
+	margin: 0 auto;
+	border: $border_param solid $color_param;
+	border-radius: $border_radius_param;
+	img {
+		position: absolute;
+				top: $top_param;
+				left: $left_param;
+	}
+}
+@mixin circle_client ($width_param, $height_param, $border_radius_param, $top_param, $left_param) {
+	position: relative;
+	display: block;
+	width: $width_param;
+	height: $height_param;
+	margin: 0 auto;
+	background: $white;
+	border-radius: $border_radius_param;
+	img {
+		position: absolute;
+				top: $top_param;
+				left: $left_param;
+	}
+}
+@mixin f_shadow ($first_param, $second_param, $third_param, $foutrh_param, $color_param, $inset) {
+	&:hover {
+		box-shadow: $first_param $second_param $third_param $foutrh_param $color_param;
+		@if $inset==1 {
+			box-shadow: $first_param $second_param $third_param $foutrh_param $color_param, inset $first_param $second_param $third_param $foutrh_param $color_param;
+		}
+	}
+}
+.f_left{
+	float: left;
+}
+.clear{
+	clear: both;
+}
+body {
+	font-family: HelveticaNeue;
+	font-size: 14px;
+}
+a {
+	text-decoration: none;
+}
+header {
+	position: relative;
+	color: $white;
+	overflow: hidden;
+	width: 100%;
+	min-width: 1000px;
+	height: 570px;
+	#slider {
+		position: absolute;
+		z-index: -999;
+		min-width: 1000px;
+		top: -11px;
+	}
+	ul {
+	@include gradients(rgb(135,135,135),rgb(112,112,112));
+	position: relative;
+	margin: 0 auto;
+	margin-top: 61px;
+	border-radius: 4px;
+	width: 940px;
+	height: 39px;
+	overflow: hidden;
+	
+	
+		li{
+			line-height: 39px;
+			border-right: solid 1px #686868;
+			border-left: solid 1px #929292;
+			a {
+				padding: 0 24px;
+				display: block;
+				color: $white;
+				&:hover {
+					@include gradients(rgb(112,112,112),rgb(135,135,135));
+				}
+			}
+			&:first-child {
+				border-left: none;
+				padding-right: 24px;
+				margin-left: 58px;
+				
+			}
+			&:last-child {
+				border-right: none;
+				padding-left: 29px;
+				img {
+					margin-right: 13px;
+					vertical-align: -2px;
+				}
+			}
+			span#light {
+				font-family: Arial; 
+			}
+			span#logo_s {
+				@include logo(-4px,21px);
+			}
+			span#logo_z {
+				@include logo(5px,31px);
+			}
+			
+		}
+	}
+	#video_self {
+		margin: 86px auto 0 auto;
+		width: 1000px;
+		text-align: center;
+		font-size: 40px;
+		p {
+			margin-bottom: 37px;
+		}
+		a#play {
+			@include circle_icon(112px, 112px, 61px, 1px, #fff, 34px, 45px);
+			margin-bottom: 30px;
+			@include f_shadow(0, 0, 50px, -10px, #000, 1);
+		}
+		p#reviews_customer {
+			margin-bottom: 0px;
+		}
+		img {
+			cursor: pointer;
+		}
+
+		
+
+	}
+}
+#top_content {
+	text-align: center;
+	padding-top: 38px;
+	@include sizes(312px,$white);
+	
+	.info_plant_all {
+		padding-left: 15px;
+		margin: 0 auto;
+		width: 980px;
+		.info_plant {
+			width: 270px;
+			padding: 0 26px;
+			p {
+				font-size: 15px;
+				color: #1f1f1f;
+				width: 235px;
+				height: 70px;
+				margin: 0 auto;
+				line-height: 1.2em;
+				overflow: hidden;
+			}
+			h2 {
+				color: #272727;
+				font-size: 24px;
+				margin-bottom: 19px;
+			}
+			a#circle_left {
+				@include circle_icon(94px, 94px, 50px, 3px, #b9adc7, 25px, 22px);
+				margin-top: 20px;
+				margin-bottom: 32px;
+			}
+			a#circle_center {
+				@include circle_icon(114px, 114px, 60px, 3px, #b9adc7, 28px, 27px);
+				margin-bottom: 32px;
+			}
+			a#circle_right {
+				@include circle_icon(94px, 94px, 50px, 3px, #b9adc7, 26px, 31px);
+				margin-top: 20px;
+				margin-bottom: 32px;
+			}
+		}
+	}
+}
+#bottom_content {
+	@include sizes(286px,url("../images/blue_background.jpg"));
+	background-position: center;
+	text-align: center;
+	padding-top: 24px;
+	#top_title {
+		font-size: 40px;
+		font-family: Arial;
+		color: $white;
+		padding-bottom: 40px;
+	}
+	#bottom_content_wrap {
+		margin: 0 auto;
+		width: 1045px;
+	}
+	#circle_customer_center {
+		margin: 0 18px;
+		a {
+			overflow: hidden;
+			@include circle_client (174px, 174px, 87px, 20px, 20px)
+		}
+		
+	}
+	#circle_customer_two_right, #circle_customer_two_left {
+		margin: 25px 10px;
+		a {
+			overflow: hidden;
+			@include circle_client (126px, 126px, 68px, 17px, 23px)
+		}
+		
+	}
+	#circle_customer_one_right, #circle_customer_one_left {
+		margin: 45px 10px;
+		a {
+			overflow: hidden;
+			@include circle_client (90px, 90px, 45px, 10px, -7px)
+		}
+	}
+	#arrow_customer_left, #arrow_customer_right  {
+		margin: 37px 56px;
+		cursor: pointer;
+	}
+}
+footer {
+	@include sizes(170px,$white);
+	margin-bottom: 55px;
+	#footer_wrap {
+		margin: 0 auto;
+		width: 1045px;
+		padding-left: 55px;
+		#logo_footer {
+			margin-top: 53px;
+			padding: 35px 26px 40px 47px;
+			border-right: 1px solid #d8d8d8;
+			height: 32px;
+			img {
+				vertical-align: -5px;
+				margin-right: 11px;
+			}
+			#bold_union {
+				font-weight: bold;
+			}
+		}
+		#footer_nav {
+			margin-top: 53px;
+			padding: 14px 26px 31px 57px;
+			border-right: 1px solid #d8d8d8;
+			height: 66px;
+			font-size: 13px;
+			li {
+				margin-bottom: 8px;
+				list-style-image: url("../images/arrow_footer_nav.png");
+				a {
+					color: #7c7c7c;
+					&:hover {
+						color: #000;
+						text-decoration: underline;
+					}
+				}
+			}
+			
+		}
+		#soc_link {
+			margin-top: 53px;
+			padding: 15px 40px 60px 40px;
+			border-right: 1px solid #d8d8d8;
+			height: 36px;
+			a#circle_soc_link_fb {
+				@include circle_icon (32px, 32px, 16px, 1px, #4c87cb, 8px, 11px);
+				margin-right: 15px;
+				@include f_shadow(0, 0, 10px, -1px, #4c87cb, 0);
+			}
+			a#circle_soc_link_vk{
+				@include circle_icon (32px, 32px, 16px, 1px, #4c87cb, 10px, 7px);
+				margin-right: 15px;
+				@include f_shadow(0, 0, 10px, -1px, #4c87cb, 0);
+			}
+			a#circle_soc_link_google {
+				@include circle_icon (32px, 32px, 16px, 1px, #4c87cb, 8px, 10px);
+				@include f_shadow(0, 0, 10px, -1px, #4c87cb, 0);
+			}
+			
+		}
+		#footer_contact {
+			margin-top: 53px;
+			padding: 13px 26px 13px 47px;
+			height: 85px;
+			.date_info {
+				font-size: 13px;
+				font-weight: bold;
+				margin-left: 20px;
+				margin-bottom: 10px;
+				color: #070707;
+				float: right;
+			}
+			a#footer_button_contact {
+				color: #505050;
+				float: left;
+				display: block;
+				width: 151px;
+				height: 33px;
+				border-radius: 3px;
+				border: 1px solid #939393;
+				line-height: 33px;
+				padding-left: 26px;
+				margin-right: 20px;
+				margin-top: 7px;
+				@include f_shadow(0, 0, 10px, -1px, #505050, 0);
+			}
+			#create_studio {
+				float: right;
+				font-size: 9px;
+				color: #3b3b3b;
+				margin-top: 7px;
+			}
+			a {
+				clear: right;
+				float: right;
+				margin-top: 7px;
+			}
+		}
+	}
+}
+
