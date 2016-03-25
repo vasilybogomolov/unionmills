@@ -8,15 +8,17 @@ $(document).ready(function(){
 			$("header").animate({
 			"height": "770px",
 	   }, 600 );
-		
-		alert(b+" 1");
-		b = false;
+				b = false;
 		}
-		else
+		else {
+            
 		$("header").animate({
-			"height": "370px",
+			"height": "570px",
 	   }, 600 );
 		b = true;
+        }
+            
 		});
+        
 
 })
